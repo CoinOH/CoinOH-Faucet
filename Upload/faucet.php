@@ -41,9 +41,22 @@ class Faucet {
     include $root_directory.$page;
     // bind to final_html
     if(isset($html)) {
-      $this->final_html = $html;
-      return true;
+      // get footer html
+      $footer_html = $this->getFooterHTML();
+      if(isset($footer_html)) {
+        $end_of_file_html = $this->config['extra']['end_of_file_html'];
+        if(empty($end_of_file_html)) {
+          $end_of_file_html = "";
+        }
+        $this->final_html = $html.$footer_html.$end_of_file_html;
+        return true;
+      }
     }
+  }
+  
+  public function getFooterHTML() {
+    $footer_html = '<div id="footer_html"><span id="footer_copyright">Powered By <a href="http://dev.coinoh.com/faucet/"> and <a href="http://">Finish This</a>.</span></div>';
+    return $footer_html;
   }
   
   public function setAndCheckPage($page='home') {
