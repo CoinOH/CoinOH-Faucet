@@ -38,7 +38,9 @@ class Faucet {
     $page = $this->page;
     $action = $this->action;
     $root_directory = $this->getRootDirectory();
-    include $root_directory.$page;
+    $html_file = $root_directory.$page;
+    // get html file contents
+    $html = file_get_contents($html_file, true);
     // bind to final_html
     if(isset($html)) {
       // get footer html
