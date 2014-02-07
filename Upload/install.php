@@ -25,6 +25,20 @@ $method = $_SERVER['REQUEST_METHOD']; // GET or POST
         <?php
           if ($method == "POST") {
             // install
+            $install_var['currency']['type'] = $_POST['currency_type'];
+            $install_var['currency']['address'] = $_POST['currency_address'];
+            $install_var['admin']['username'] = $_POST['admin_username'];
+            $install_var['admin']['password'] = $_POST['admin_password'];
+            $install_var['admin']['email'] = $_POST['admin_email'];
+            $install_var['site']['title'] = $_POST['site_title'];
+            $install_var['site']['subtitle'] = $_POST['site_subtitle'];
+            $install_var['site']['theme'] = $_POST['site_theme'];
+            $install_var['site']['website'] = $_POST['site_website'];
+            $install_var['payment_service']['enabled'] = $_POST['payment_service'];
+            $install_var['payment_service']['private_key'] = $_POST['payment_service_private_key'];
+            $install_var['ad_service'] = $_POST['ad_service'];
+            // more to do!
+            
           }
           if ($method == "GET") {
             // show config form
